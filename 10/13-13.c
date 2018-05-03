@@ -2,6 +2,7 @@
 
 double sum(double *);
 double all_sum(double [*][5]);
+void get_input(int [*][5]);
 
 int main(void)
 {
