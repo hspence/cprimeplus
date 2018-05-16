@@ -1,23 +1,23 @@
 #include <stdio.h>
 
-double sum(int []);
-double all_sum(int [] [5]);
-void get_input(int [] [5]);
+double sum(int ,int [*]);
+double all_sum(int,int [] [*]);
+void get_input(int,int [] [*]);
 
 int main(void)
 {
     int i;
     int list[3][5];
-    get_input(list);
+    get_input(5,list);
     for(i=0;i<3;i++) 
-        printf("The %d line sums is %.2lf \n",i+1,sum(list[i]));
-    printf("\n The all sums is %.2lf\n",all_sum(list));
+        printf("The %d line sums is %.2lf \n",i+1,sum(5,list[i]));
+    printf("\n The all sums is %.2lf\n",all_sum(5,list));
     
    
     return 0;
 }
 
-void get_input(int list[][5])
+void get_input(int n,int list[][n])
 {
     int i;
     printf("please enter five number:\n");
@@ -27,7 +27,7 @@ void get_input(int list[][5])
 }
 } 
      
-double sum(int list[5])
+double sum(int n, int list[n])
 {
     int i;
     double sum=0;
@@ -35,7 +35,7 @@ double sum(int list[5])
     return sum;
 }
 
-double all_sum(int list[][5])
+double all_sum(int n,int list[][n])
 {
     int i,j;
     double sum=0;
