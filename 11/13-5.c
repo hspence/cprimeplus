@@ -2,16 +2,15 @@
 #include <string.h>
 #define QUIT '!'
 char * search_str(char*,char);
-char * s_gets(char*);
-
+char s_getchar();
 int main(void)
 {
-    char ch,targe;
+    char targe;
     char source[40];
-    char result[40];
+    char * result;
 
     printf("Please enter a sentence to ba resource:\n");
-    s_gets(source);
+    fgets(source,40,stdin);
     printf("Please enter a char to serch:\n");
     targe=s_getchar();
     while(targe!=QUIT){
@@ -34,13 +33,13 @@ char * search_str(char * string,char ch)
 {
     int count=0;
     int num;
-
+    int flag=0;
     num=strlen(string);
     while(count++<num)
     {
         if(*string==ch){
             flag=1;
-            break
+            break;
     }
         string++;
     }
@@ -49,29 +48,11 @@ char * search_str(char * string,char ch)
     else
         return NULL;
 }
-char * s_gets(char *st)
-{
-    char * ret_val;
-    int i=0;
-    ret_val=fgets(st,40,stdin);
-    if(ret_val)
-    {
-        while(st[i]!='\n'&&st[i]!='\0')
-            i++;
-        if(st[i]=='\n')
-            st[i]='\0';
-        while(getchar()!='\n')
-            continue;
 
-}
-    return ret_val;
-
-}
 char s_getchar(){
     char ch;
     ch=getchar();
     while(getchar()!='\n')
         continue;
     return ch;
-    int i=3;
 }
