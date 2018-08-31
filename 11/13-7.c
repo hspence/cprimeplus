@@ -21,7 +21,7 @@ int main(void)
        scanf("%d",&num);
        getchar();
        if(strlen(s2)>=num)
-           s1[strlen(s2)+num]='\0';
+           s1[strlen(s1)+num]='\0';
        printf("the result is:\n");
        puts(mystrncpy(s1,s2,num));
        printf("Input the first string (type quit to quit):\n");
