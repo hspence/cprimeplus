@@ -12,7 +12,7 @@ int main(void)
     int num;
 
     printf("please input the first string :(\"quit\")to quit\n");
-    while(strcmp(fgets(s1,SIZE,stdin),QUIT)) //å› ä¸ºfgetså‡½æ•°ä¼šåœ¨è¾“å…¥æœ«ç«¯è‡ªåŠ¨åŠ å…¥æ¢è¡Œç¬¦'\n''
+    while(strcmp(fgets(s1,SIZE,stdin),QUIT)) //fgetº¯Êı»á°ÑÊäÈëÖĞµÄÄ©Î²µÄ\n¸øÂ¼Èë''
     {
        s1[strlen(s1)-1]='\0';
        printf("Input the second string:\n");
