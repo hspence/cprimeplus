@@ -2,7 +2,7 @@
 #include <string.h>
 #define SIZE 40
 #define QUIT "quit\n"
-char * string_re(char *);
+char * string_re(char * string);
 
 int main(void)
 {
@@ -11,8 +11,8 @@ int main(void)
 
 	while(strcmp(fgets(string,SIZE,stdin),QUIT))
 	{
-		
-		printf("The results is %s\n",string_re(string));
+		string_re(string);
+		printf("The results is %s\n",string);
 		printf("please input string:\n");
 	}
 	printf("ok! good bye!");
@@ -21,12 +21,14 @@ int main(void)
 
 char * string_re(char * string)
 {
-	char result[SIZE];
-	int i;
-	int j=0;
-	for(i=(strlen(string)-2);i>=0;i--)
+	char cache;
+	int i,num=strlen(string);
+	
+	for(i=0;i<=num;i++)
 	{
-		result[j++]=string[i];
+		cache=string[i];
+		string[i]=string[num-i-1];
+		string[num-i-1]=cache;
 	}
-	return result;
+	return string;
 }
