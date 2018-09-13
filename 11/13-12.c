@@ -9,7 +9,7 @@ int main(void)
 	char ch;
 	while((ch=getchar())!=EOF)
 	{
-		if(!isspace(ch) && ispunct(ch) && !inword)
+		if(!isspace(ch) && !ispunct(ch) && !inword)
 		{
 			inword =1;
 			word++;
