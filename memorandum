@@ -1,0 +1,102 @@
+sudo apt-get install -软件名 安装命令
+sudo apt-get update 更新本地电脑的软件安装链接
+sudo apt-get upgrade 将已安装的软件与服务器的比较并更新
+sudo apt-get remove package 删除已安装的包
+ls 显示当前目录下的文件和目录 -a，显示包括隐藏文件
+<ctype.h> isupper(), islower(),
+
+
+git命令：
+git pull --rebase origin master 将远程与本地合并
+git push -u origin master 上传至github
+git remote add origin git@github.com:hspence/cprimeplus 与远程库连接
+git commit 更改提交至本地git
+git add [filename] or . 
+git clone git@github.com:hspence/cprimeplus 克隆远程仓库
+rm -rf 文件夹名 删除文件夹（带有文件）
+
+复合字面量 (int[DEFINE]) {4,5,6,7,7}; 提供临时需要值的一种手段；
+
+tsg610 password:23836200
+
+fgets(char *s,int size,FILE *stream);
+参数s是缓冲区的首地址，size是缓冲区的长度，该函数从stream所指的文件中读取以'\n'结尾的一行存到s中，并在改行末尾添加'\0'
+如果一行太长，已经读取了size-1个字符还未读取到'\n',会在size处存入一个'\0'
+#include <stdlib.h> 包含了 atoi(char *); atof(char *); atol(char *);函数原型。
+
+<ctype.h> 包含
+	isspace(char);是否为空格字符
+	isalpha(char);是否为字母字符
+	ispunct(char);是否为标点符号字符
+	isdigit(char);是否为数字字符
+	toupper(char);将字符转换为大写
+	tolower(char);将字符转换为小写
+const char * pc = "Behold a string literal!";
+	const只能保证指向的字符串内容不被修改，但pc可以指向别的字符串，因此pc是一个可以修改的左值。
+sudo apt-get install blueman bluez*
+	安装蓝牙驱动
+sudo lsb_release -a 
+	查看Ubuntu的版本号
+register int i=0; //寄存器变量，奇高该变量的访问速度
+void trysta()
+{
+	static int i=0; //告诉编译器i此静态变量只在函数内可见，只执行一次
+}
+不能在函数的形参中使用 static 声明 int fun(static int flu);//不允许
+
+#include <stdio.h>
+int traveler=1;//外部变量，作用域在整个程序的其他文件中也可见，但要引用时使用extern标识符；
+static int stayhome=0;//具有内部链接的静态变量，只能用于同一个文件中的函数；
+int main(void)
+{	int hocus; //默认为局部变量，与外部的hocus无关；
+	auto int hocus;//显式声明自动变量，与外部hocus无关；
+	extern int num; //extern声明该变量为“外部已定义好的外部变量”
+	//extern 表明该声明不是定义，它指示编译器去别的地方查询其定义。
+	...
+	return 0;
+}
+
+unsigned int 无符号整型
+#include <stdlib.h> 
+	提供rand()函数的原型；
+	malloc()函数原型;
+	free()函数原型。
+malloc()函数可以创建一个变长数组：
+	double * ptd;
+	ptd=（double *) malloc(max*sizeof(double));
+	//要进行类型转换，转换后可使用ptd[i]的方式操作数组；
+	ptd=(double*) calloc(max,sizeof(double));//分配的内存空间一样，只是不同系统的不同类型大小不一样。max个double大小的内存单元。calloc()分配的空间中全部为0
+	free(ptd);//释放内存；
+	sizeof(int)返回的是long unsigned int,为字节的个数。如sizeof(int)为4；
+
+#include <time().h> //为time()函数提供原型
+	
+	srand((unsigned int) time(0))//使用时间time()设定随机数种子。即随机化time()函数。
+
+typedef的用法：
+
+对指针使用限定符const
+	const float *pt;//pt所指向的地址里的值是不可以改变的，但可以指向另一个地址。
+	float * const pt;//pt指向的地址是一个固定值，但地址里的值可以改变。
+	const float * const pt;//所指向的地址和地址里的值都不可以改变。
+
+restrict int * restar=(int *) malloc(10*sizeof(int));
+	当 restart是访问由malloc()分配的初始且唯一的方式，可以使用restrict 关键字使编译器优化代码，提供运行速度。
+	（restar 是唯一的访问方式，可以将多条操作语句合并到一句之中）
+
+volatile int locl;
+volatile int * ploc;
+告诉编译器此数据容易被其他代理所改变，不要使用寄存器读取该数据，既不要使用“缓存”的优化方式。一个值可以同时是volatile和const的，如硬件时钟。
+
+getc(fp);//从指针fp指定的文件中获得一个字符，getchar()=getc(stdin)
+putc(ch,fpout);//将字符ch写入到FILE指针fpout指定的文件中。putchar(ch)=putc(ch,stdout)
+
+
+
+
+
+
+
+
+
+
