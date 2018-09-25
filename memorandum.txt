@@ -5,7 +5,6 @@ sudo apt-get remove package 删除已安装的包
 ls 显示当前目录下的文件和目录 -a，显示包括隐藏文件
 <ctype.h> isupper(), islower(),
 
-
 git命令：
 git pull --rebase origin master 将远程与本地合并
 git push -u origin master 上传至github
@@ -91,12 +90,47 @@ volatile int * ploc;
 getc(fp);//从指针fp指定的文件中获得一个字符，getchar()=getc(stdin)
 putc(ch,fpout);//将字符ch写入到FILE指针fpout指定的文件中。putchar(ch)=putc(ch,stdout)
 
+strcpy()：
+	strcpy(dest,src);    
+	strcpy把src所指向以'\0'结尾的字符串复制到dest所指的数组中，返回指向dest的指针。     当sizeof(dest)>=sizeof(src)时，拷贝正确，并在dest字符串后面加入'\0';     当sizeof(dest)<sizeof(src)时，拷贝出错。      
+	
+	strncpy()：strncpy(dest,src,n);    
+	strncpy把src所指向以'\0'结尾的字符串的前n个字符复制到dest所指的数组中，返回指向dest的指针。     当n>=sizeof(src)时，拷贝正确，并在dest字符串后面加入'\0';     当n<sizeof(src)时，只拷贝src前n-1个字符串到dest，不会为dest字符串后面加入'\0';
 
-
-
-
-
-
-
-
-
+fgets(buf,stlen,fp);//把指定文件中的字符串写入字符串数组中
+fputs(buf,fp);//把指定的字符串写入文件中
+	buf为char * 类型，为读取的字符串的存储地址。stlen是字符串的大小，fp是指向FILE的指针。
+	buf为char * 类型，为读取的字符串的存储地址。stlen是字符串的大小，fp是指向FILE的指针。
+	buf为char * 类型，为读取的字符串的存储地址。stlen是字符串的大小，fp是指向FILE的指针。
+	buf为char * 类型，为读取的字符串的存储地址。stlen是字符串的大小，fp是指向FILE的指针。
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
