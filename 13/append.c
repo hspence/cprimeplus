@@ -8,7 +8,7 @@ char * s_gets(char * st,int n);
 
 int main(void)
 {
-    int file=0;
+    int files=0;
     FILE *fa,*fs;
     char file_app[SLEN];
     char file_src[SLEN];
@@ -64,5 +64,47 @@ int main(void)
 
 void append(FILE *source,FILE *dest)
 {
-    size_t
+    size_t bytes;
+    static char temp[BUFSIZE];
+    
+    while((bytes=fread(temp,sizeof(char),BUFSIZE,source)))
+    	fwrite(temp,sizeof(char),bytes,dest);
 }
+
+char * s_gets(char * st,int n)
+{
+	char * ret_val;
+	char * find;
+	
+	ret_val=fgets(st,n,stdin);
+	if(ret_val)
+	{
+		find=strchr(st,'\n');
+		if(find)
+			*find='\0';
+		else
+			while(getchar()!='\n')
+				continue;
+	}
+	return ret_val;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
