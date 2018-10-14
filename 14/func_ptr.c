@@ -15,9 +15,10 @@ void show(void (*pfun)(char *),char * st);
 int main(void)
 {
 	char str[LEN];
+	char copy[LEN];
 	char choice;
 	void (*pfun)(char *);
-	
+	printf("Enter a string (empty line to quit)\n");
 	while(s_gets(str,LEN)!=NULL && str[0]!='\0')
 	{
 		
@@ -29,12 +30,13 @@ int main(void)
 					pfun=ToUpper;	break;
 				case 'l':
 					pfun=ToLower;	break;
-				case 'd':
+				case 'o':
 					pfun=Dummy;		break;
 				case 't':
 					pfun=Transpose;	break;				
 			}
-			show(pfun,str);
+			strcpy(copy,str);
+			show(pfun,copy);
 		}
 		puts("Nex line:(empty line to quit)");
 	}
@@ -108,7 +110,7 @@ char * s_gets(char * st,int n)
 	}
 	return ret_val;
 }
-void Tranpose(char * st)
+void Transpose(char * st)
 {
 	while(*st)
 	{
