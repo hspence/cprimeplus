@@ -39,10 +39,11 @@ int main(void)
 		days=0;
 		for(i=0;i<12;i++)
 		{
+			if(!is)
+				days +=years[i].days;
 			if(strcmp(toLower(years[i].monthname),toLower(choice))==0)
 				is=1;
-			if(is)
-				days +=years[i].days;	
+				
 		}
 		if(is==0)
 		{

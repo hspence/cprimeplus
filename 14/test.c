@@ -1,22 +1,11 @@
 #include <stdio.h>
-void str1(void (*pf)(void));
-void pr(void);
-
 int main(void)
 {
-	str1(pr);
+	int i;
+	char c;
 	
+	scanf("%d",&i);
+	scanf("%c",&c); 
+	printf("i=%d,c=%c ",i);
 	return 0;
-}
-
-void pr(void)
-{
-	printf("prprprprprpr...\n");
-}
-void str1(void (*pf)(void))
-{
-	puts("Now in str1 function..");
-	pf();
-	puts("still in function str1..");
-	
 }
