@@ -94,21 +94,26 @@ strcpy()：
 	strcpy(dest,src);    
 	strcpy把src所指向以'\0'结尾的字符串复制到dest所指的数组中，返回指向dest的指针。     当sizeof(dest)>=sizeof(src)时，拷贝正确，并在dest字符串后面加入'\0';     当sizeof(dest)<sizeof(src)时，拷贝出错。      
 	
-	strncpy()：strncpy(dest,src,n);    
+strncpy()：strncpy(dest,src,n);    
 	strncpy把src所指向以'\0'结尾的字符串的前n个字符复制到dest所指的数组中，返回指向dest的指针。     当n>=sizeof(src)时，拷贝正确，并在dest字符串后面加入'\0';     当n<sizeof(src)时，只拷贝src前n-1个字符串到dest，不会为dest字符串后面加入'\0';
 
 fgets(buf,stlen,fp);//把指定文件中的字符串写入字符串数组中
 fputs(buf,fp);//把指定的字符串写入文件中
+	
 	buf为char * 类型，为读取的字符串的存储地址。stlen是字符串的大小，fp是指向FILE的指针。
-	buf为char * 类型，为读取的字符串的存储地址。stlen是字符串的大小，fp是指向FILE的指针。
-	buf为char * 类型，为读取的字符串的存储地址。stlen是字符串的大小，fp是指向FILE的指针。
-	buf为char * 类型，为读取的字符串的存储地址。stlen是字符串的大小，fp是指向FILE的指针。
+
+	int list[10];
+	FILE * fp;
+
+fread(list,sizeof(int),10,fp);//从文件流fp读取10个int大小的数据进入list数组中，函数返回成功读取项的数目。
+
+fwrite(list,sizeof(int),10,fp);//把list数组的10个int大小的数据写入文件流fp中。
 	
+rewind(fp)//把文件流的指针重新定义为开头。
 	
+<stdbool.h>//定义了bool,true,false;
 	
-	
-	
-	
+union//（联合）里面的所有的成员在内存中用的是同一个地址，改变一个成员的同时等于改变了其他成员，（实际上union只有一个可用的成员，只是大小在变化而已）
 	
 	
 	

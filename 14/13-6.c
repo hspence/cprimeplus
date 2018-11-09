@@ -2,12 +2,12 @@
 #include <string.h>
 #include <stdlib.h>
 #define LEN 20
-#define SIZE 18
+#define SIZE 20
 
 struct player {
 	int num;
-	char * first[LEN];
-	char * last[LEN];
+	char first[LEN];
+	char last[LEN];
 	int play_times;
 	int hit_times;
 	int run_times;
@@ -34,7 +34,7 @@ void init_data(struct player * pts,int n)
 	{
 		pts->num=0;
 		strcpy(pts->first, "");
-		strcpy(pts->last, "");
+        strcpy(pts->last, "");
 		pts->play_times=0;
 		pts->hit_times=0;
 		pts->run_times=0;
@@ -51,29 +51,30 @@ void get_data(struct player * pts,int n)
 	FILE * fp;
 	printf("Please enter the file name:\n");
 	scanf("%s",filename);
+	
 	if((fp=fopen(filename,"r"))==NULL)
 	{
 		fprintf(stderr,"Error in open file %s",filename);
 		exit(EXIT_FAILURE);
 	}
-	while(fscanf(fp,"%d %s %s %d %d %d %d",&number,first,last,&play_times,&hit_times,&run_times,&rbi_times))
+	while(fscanf(fp,"%d%s%s%d%d%d%d",&number,first,last,&play_times,&hit_times,&run_times,&rbi_times)==7)
 	{
 		pts[number].num=number;
-		strcpy(pts[number].first,first);
-		strcpy(pts[number].last,last);
-		pts[number].play_times=play_times;
-		pts[number].hit_times=hit_times;
-		pts[number].run_times=run_times;
-		pts[number].rbi_times=rbi_times;
+		strcpy(pts[number].first, first);
+		strcpy(pts[number].last, last);
+		pts[number].play_times+=play_times;
+		pts[number].hit_times+=hit_times;
+		pts[number].run_times+=run_times;
+		pts[number].rbi_times+=rbi_times;
 	}
 	fclose(fp);
 }
-print_data(struct player * pts,int n)
+void print_data(struct player * pts,int n)
 {
 	int i;
 	for(i=0;i<n;i++,pts++)
 	{
-		if(pts->first !='\0')
+		if(pts->first[0] !='\0')
 			printf("%d %s %s %d %d %d %d\n",pts->num,pts->first,pts->last,pts->play_times,pts->hit_times,pts->run_times,pts->rbi_times);
 		else
 			break;
