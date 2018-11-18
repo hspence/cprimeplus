@@ -16,7 +16,7 @@
 int main(void)
 {
 	float x = 45.0f;
-	double xx=25.0;
+	double xx=45.0;
 	long double xxx=45.0L;
 	
 	long double y=SQRT(x);
